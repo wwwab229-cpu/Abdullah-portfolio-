@@ -309,6 +309,64 @@
   .contact-card h4{font-size:1.08rem; color:#111116;}
   .contact-card p{font-size:0.94rem; color:#292932;}
 
+
+  /* ---------- ABOUT / PREMIUM STORY SYSTEM ---------- */
+  #about.about-premium{padding:8vh 0 8vh; position:relative; overflow:hidden;}
+  .about-premium .container{position:relative;}
+  .about-premium .about-orb{position:absolute; width:260px; height:260px; border-radius:50%; filter:blur(70px); opacity:.13; pointer-events:none; animation:aboutOrbDrift 12s ease-in-out infinite;}
+  .about-premium .about-orb-a{background:var(--indigo); top:7%; left:-120px;}
+  .about-premium .about-orb-b{background:var(--teal); right:-130px; bottom:5%; animation-delay:-4s;}
+  @keyframes aboutOrbDrift{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(35px,-20px,0) scale(1.12)}}
+  .about-premium .sec-head{margin-bottom:42px;}
+  .about-premium .sec-eyebrow{display:inline-flex; align-items:center; gap:9px; padding:7px 12px; border:1px solid rgba(68,56,242,.16); border-radius:999px; background:rgba(255,255,255,.72); box-shadow:0 12px 28px -18px rgba(68,56,242,.5);}
+  .about-premium .sec-eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--indigo); box-shadow:0 0 12px rgba(68,56,242,.7); animation:aboutPulse 1.8s ease-in-out infinite;}
+  @keyframes aboutPulse{0%,100%{transform:scale(.75);opacity:.55}50%{transform:scale(1.35);opacity:1}}
+  .about-premium .sec-head h2{font-size:clamp(2rem,5vw,3rem); margin-bottom:12px;}
+  .about-premium .about-subhead{max-width:650px; margin:0 auto; color:#3f3f4a; font-size:1.05rem; line-height:1.7;}
+  .about-stage{display:grid; grid-template-columns:minmax(0,1.08fr) minmax(330px,.92fr); gap:28px; align-items:stretch;}
+  .about-story-card,.about-identity-card{position:relative; overflow:hidden; border:1px solid rgba(20,20,30,.08); border-radius:28px; background:rgba(255,255,255,.82); backdrop-filter:blur(14px); box-shadow:0 28px 65px -32px rgba(20,20,30,.28); transform-style:preserve-3d;}
+  .about-story-card{padding:34px;}
+  .about-story-card::before{content:""; position:absolute; inset:-40% -20%; background:conic-gradient(from 90deg,transparent 0 35%,rgba(68,56,242,.08) 42%,rgba(0,179,159,.07) 52%,transparent 62%); animation:aboutSweep 9s linear infinite; pointer-events:none;}
+  @keyframes aboutSweep{to{transform:rotate(360deg)}}
+  .about-story-card::after,.about-identity-card::after{content:""; position:absolute; width:150px; height:150px; border-radius:50%; background:radial-gradient(circle,rgba(255,207,32,.18),transparent 70%); right:-50px; top:-55px; pointer-events:none;}
+  .about-kicker{position:relative; z-index:1; display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:24px; font-size:.72rem; font-weight:800; letter-spacing:.14em; color:var(--indigo);}
+  .about-kicker .live-dot{display:inline-flex; align-items:center; gap:7px; color:#4b4b56; letter-spacing:.04em; font-weight:600;}
+  .about-kicker .live-dot::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--teal); box-shadow:0 0 10px rgba(0,179,159,.7); animation:aboutPulse 1.5s infinite;}
+  .about-quote-premium{position:relative; z-index:1; font-family:var(--font-display); font-size:clamp(1.45rem,3.2vw,2rem); font-weight:700; line-height:1.28; letter-spacing:-.025em; margin-bottom:22px;}
+  .about-quote-premium span{background:linear-gradient(100deg,var(--indigo),var(--violet),var(--teal)); -webkit-background-clip:text; background-clip:text; color:transparent; background-size:180% auto; animation:aboutGradient 5s linear infinite;}
+  @keyframes aboutGradient{to{background-position:-180% center}}
+  .about-copy-premium{position:relative; z-index:1; color:#363640; font-size:1.02rem; line-height:1.82;}
+  .about-copy-premium p{margin-bottom:16px;}
+  .about-copy-premium b{color:#111116;}
+  .about-micro-flow{position:relative; z-index:1; display:grid; grid-template-columns:1fr 34px 1fr; align-items:center; gap:10px; margin-top:24px;}
+  .about-micro-node{padding:12px 13px; border-radius:14px; border:1px solid rgba(20,20,30,.08); background:rgba(255,255,255,.78); font-size:.76rem; font-weight:700;}
+  .about-micro-node small{display:block; color:#666673; font-size:.68rem; font-weight:500; margin-top:3px;}
+  .about-micro-arrow{text-align:center; color:var(--indigo); font-size:1.2rem; animation:aboutArrow 1.8s ease-in-out infinite;}
+  @keyframes aboutArrow{0%,100%{transform:translateX(0);opacity:.5}50%{transform:translateX(5px);opacity:1}}
+  .about-identity-card{padding:30px; display:flex; flex-direction:column; justify-content:space-between; min-height:100%;}
+  .about-identity-top{position:relative; z-index:1; display:flex; align-items:center; gap:14px; margin-bottom:28px;}
+  .about-mini-avatar{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,var(--indigo),var(--violet));color:#fff;font-family:var(--font-display);font-weight:700;font-size:1.1rem;box-shadow:0 18px 30px -14px rgba(68,56,242,.55);animation:aboutAvatar 3.5s ease-in-out infinite;}
+  @keyframes aboutAvatar{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(-3deg)}}
+  .about-identity-top strong{font-family:var(--font-display);font-size:1.12rem;display:block;}
+  .about-identity-top small{color:#666673;display:block;margin-top:3px;}
+  .about-principles{position:relative;z-index:1;display:grid;gap:11px;}
+  .about-principle{display:grid;grid-template-columns:34px 1fr;gap:11px;align-items:center;padding:13px 14px;border-radius:16px;background:rgba(248,248,252,.82);border:1px solid rgba(20,20,30,.06);transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;}
+  .about-principle:hover{transform:translateX(7px);border-color:var(--accent);box-shadow:0 16px 30px -20px rgba(20,20,30,.35);}
+  .about-principle .p-icon{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;color:#fff;background:var(--accent);font-size:.88rem;box-shadow:0 10px 18px -10px var(--accent);}
+  .about-principle strong{font-family:var(--font-display);font-size:.9rem;}
+  .about-principle span{display:block;color:#666673;font-size:.74rem;margin-top:2px;line-height:1.35;}
+  .about-metrics{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:22px;}
+  .about-metric{padding:13px 10px;border-radius:15px;text-align:center;background:#fff;border:1px solid rgba(20,20,30,.07);box-shadow:0 12px 24px -20px rgba(20,20,30,.25);}
+  .about-metric b{display:block;font-family:var(--font-display);font-size:1rem;color:#111116;}
+  .about-metric span{font-size:.66rem;color:#6a6a75;}
+  .about-chip-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px;}
+  .about-chip-row .about-chip{font-size:.76rem;padding:8px 12px;}
+  .about-bottom-line{margin-top:24px;display:flex;align-items:center;justify-content:center;gap:12px;color:#555560;font-size:.76rem;}
+  .about-bottom-line .line{width:44px;height:1px;background:linear-gradient(90deg,transparent,var(--indigo));}
+  .about-bottom-line .line:last-child{transform:scaleX(-1);}
+  @media(max-width:840px){.about-stage{grid-template-columns:1fr}.about-identity-card{min-height:0}.about-story-card{padding:28px}}
+  @media(max-width:520px){#about.about-premium{padding:7vh 0}.about-story-card,.about-identity-card{border-radius:22px;padding:22px}.about-micro-flow{grid-template-columns:1fr;gap:8px}.about-micro-arrow{transform:rotate(90deg)}.about-metrics{grid-template-columns:1fr}.about-bottom-line{font-size:.7rem}}
+
   /* ---------- SECTION HEADERS ---------- */
   .sec-eyebrow{ font-family:var(--font-display); font-size:0.82rem; font-weight:600; color:var(--indigo); margin-bottom:12px; letter-spacing:0.02em; }
   .sec-head{max-width:640px; margin:0 auto 34px; text-align:center;}
@@ -746,46 +804,77 @@
   <div class="scroll-cue"><span></span>Scroll</div>
 </section>
 
-<section id="about" class="light-frame">
-  <div class="section-glow" style="width:340px; height:340px; background:#ffcf20; opacity:0.18; top:-60px; left:-80px;"></div>
-  <div class="section-glow" style="width:280px; height:280px; background:#4438f2; opacity:0.14; bottom:-60px; right:-60px; animation-direction:reverse;"></div>
+<section id="about" class="about-premium light-frame">
+  <div class="about-orb about-orb-a"></div>
+  <div class="about-orb about-orb-b"></div>
   <div class="container">
     <div class="sec-head reveal">
       <div class="sec-eyebrow">ABOUT ME</div>
       <h2>Building smarter ways to work</h2>
-    </div>
-    <div class="solution-flow reveal-scale" aria-label="Problem to solution flow">
-      <div class="flow-card">
-        <div class="flow-label">START WITH THE PROBLEM</div>
-        <div class="flow-title">Messy work</div>
-        <div class="flow-copy">Scattered information, repetitive tasks and too many steps.</div>
-        <div class="flow-stack"><span class="flow-chip">Manual</span><span class="flow-chip">Scattered</span><span class="flow-chip">Slow</span></div>
-      </div>
-      <div class="flow-arrow" aria-hidden="true">→</div>
-      <div class="flow-card">
-        <div class="flow-label">BUILD WITH PURPOSE</div>
-        <div class="flow-title">Smarter systems</div>
-        <div class="flow-copy">Clear structure, useful automation and digital experiences built around the real need.</div>
-        <div class="flow-stack"><span class="flow-chip">Structured</span><span class="flow-chip">Practical</span><span class="flow-chip">Useful</span></div>
-      </div>
+      <p class="about-subhead">I start with the friction, understand the real need, then shape technology into something useful, clear and built to work.</p>
     </div>
 
-    <div class="about-wrap">
-      <div class="about-copy reveal-left">
-        <div class="about-quote">"We turn repetitive business work into smart, organized systems."</div>
-        <p>I'm <b>Abdullah Mumtaz Malik</b>, founder of <b>AMM Data Solutions</b>. I use AI, automation and practical digital tools to solve real business problems — from workflow and data organization to content and digital systems.</p>
-        <p>My approach is simple: <b>use technology where it creates real value, keep the experience clear, and build around the problem first.</b></p>
-        <div class="about-chips">
+    <div class="about-stage">
+      <article class="about-story-card reveal-left">
+        <div class="about-kicker">
+          <span>PROBLEM → SYSTEM</span>
+          <span class="live-dot">Always problem-first</span>
+        </div>
+
+        <div class="about-quote-premium">“We turn <span>repetitive business work</span> into smart, organized systems.”</div>
+
+        <div class="about-copy-premium">
+          <p>I'm <b>Abdullah Mumtaz Malik</b>, founder of <b>AMM Data Solutions</b>. I use AI, automation and practical digital tools to solve real business problems — from workflow and data organization to content and digital systems.</p>
+          <p>My approach is simple: <b>use technology where it creates real value, keep the experience clear, and build around the problem first.</b></p>
+        </div>
+
+        <div class="about-micro-flow" aria-label="My working approach">
+          <div class="about-micro-node">01 · Understand<small>Find the real bottleneck</small></div>
+          <div class="about-micro-arrow">→</div>
+          <div class="about-micro-node">02 · Build<small>Shape a practical solution</small></div>
+        </div>
+
+        <div class="about-chip-row">
           <span class="about-chip" style="--c:#4438f2;">🤖 AI-First Workflow</span>
           <span class="about-chip" style="--c:#00b39f;">📊 Data &amp; Reporting</span>
           <span class="about-chip" style="--c:#ff5f6d;">🎯 Client-Ready Output</span>
         </div>
-      </div>
+      </article>
+
+      <aside class="about-identity-card reveal-right">
+        <div>
+          <div class="about-identity-top">
+            <div class="about-mini-avatar">AM</div>
+            <div><strong>Abdullah Mumtaz Malik</strong><small>Founder · AMM Data Solutions</small></div>
+          </div>
+
+          <div class="about-principles">
+            <div class="about-principle" style="--accent:#4438f2;">
+              <div class="p-icon">⌁</div>
+              <div><strong>Problem first</strong><span>Start with the business need, not the tool.</span></div>
+            </div>
+            <div class="about-principle" style="--accent:#00b39f;">
+              <div class="p-icon">✦</div>
+              <div><strong>Practical AI</strong><span>Use automation where it genuinely saves effort.</span></div>
+            </div>
+            <div class="about-principle" style="--accent:#ff5f6d;">
+              <div class="p-icon">✓</div>
+              <div><strong>Clear output</strong><span>Make the result useful, understandable and ready to act on.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-metrics" aria-label="Working principles">
+          <div class="about-metric"><b>Clear</b><span>Experience</span></div>
+          <div class="about-metric"><b>Useful</b><span>Technology</span></div>
+          <div class="about-metric"><b>Focused</b><span>Execution</span></div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="about-bottom-line reveal"><span class="line"></span>Technology should make work feel simpler<span class="line"></span></div>
   </div>
 </section>
-
-
-
 <section id="skills" class="light-frame">
   <div class="section-glow" style="width:320px; height:320px; background:#00b39f; opacity:0.15; top:-50px; right:-60px;"></div>
   <div class="section-glow" style="width:260px; height:260px; background:#ffcf20; opacity:0.18; bottom:-40px; left:-60px; animation-direction:reverse;"></div>
