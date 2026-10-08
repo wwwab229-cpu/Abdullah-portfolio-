@@ -211,33 +211,6 @@
   @keyframes pulse-down{0%{opacity:0.2; transform:scaleY(0.4); transform-origin:top;}50%{opacity:1; transform:scaleY(1); transform-origin:top;}100%{opacity:0.2; transform:scaleY(0.4); transform-origin:top;}}
 
   /* ---------- marquee strip ---------- */
-  /* ---------- agency & client management banner ---------- */
-  #agency-banner{padding:0 0 5vh;}
-  .agency-banner{
-    max-width:900px; margin:0 auto;
-    display:flex; align-items:center; gap:20px;
-    background:linear-gradient(120deg, rgba(255,95,109,0.08), rgba(255,207,32,0.08));
-    border:1px solid rgba(255,95,109,0.25);
-    border-radius:20px; padding:22px 28px;
-    box-shadow:var(--card-shadow);
-  }
-  .agency-banner-icon{
-    width:52px; height:52px; flex:none; border-radius:14px;
-    background:linear-gradient(135deg,#ff5f6d,#ffb020);
-    display:flex; align-items:center; justify-content:center; color:#fff;
-    box-shadow:0 14px 24px -10px rgba(255,95,109,0.5);
-  }
-  .agency-banner-icon svg{width:56%; height:56%;}
-  .agency-banner-text h3{font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin-bottom:4px;}
-  .agency-banner-text p{font-size:0.9rem; color:var(--sub); line-height:1.5;}
-  @media (max-width:600px){ .agency-banner{flex-direction:column; text-align:center;} }
-
-  .marquee-wrap{ overflow:hidden; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:16px 0; background:#fafaff; }
-  .marquee-track{display:flex; gap:40px; white-space:nowrap; animation:marquee 26s linear infinite; width:max-content;}
-  .marquee-track span{ font-family:var(--font-display); font-weight:600; font-size:1rem; color:var(--sub); display:flex; align-items:center; gap:12px; }
-  .marquee-track span::after{content:"✦"; color:var(--indigo); font-size:0.8rem;}
-  @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-
   /* ---------- glowing section outline ---------- */
   .light-frame{position:relative;}
   .light-frame::before{
@@ -670,7 +643,7 @@
       <div class="about-copy reveal-left">
         <div class="about-quote">"We turn repetitive business work into smart, organized systems."</div>
         <p>I'm <b>Abdullah Mumtaz Malik</b>, founder of <b>AMM Data Solutions</b>. I use AI, automation and practical digital tools to solve real business problems — from workflow and data organization to content and digital systems.</p>
-        <p>Our focus is simple: <mark>practical solutions, clean execution and reliable delivery</mark> for growing businesses, agencies and startups.</p>
+        <p>My approach is simple: <b>use technology where it creates real value, keep the experience clear, and build around the problem first.</b></p>
         <div class="about-chips">
           <span class="about-chip" style="--c:#4438f2;">🤖 AI-First Workflow</span>
           <span class="about-chip" style="--c:#00b39f;">📊 Data &amp; Reporting</span>
@@ -705,15 +678,15 @@
   <div class="container">
     <div class="sec-head reveal">
       <div class="sec-eyebrow">CAPABILITIES</div>
-      <h2>AI, data, content &amp; digital execution</h2>
-      <p>Practical skills used to build useful business outcomes.</p>
+      <h2>AI, business systems &amp; digital execution</h2>
+      <p>Practical capabilities used to turn business problems into useful outcomes.</p>
     </div>
     <div class="skills-grid">
       <div class="skill-card reveal-scale pattern-circuit" style="--accent:#4438f2; --accent-rgb:68,56,242;" >
         <div class="skill-num">01</div>
         <div class="skill-icon ia-pulse" style="background:#4438f2;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1.2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
-        <h3>AI-Powered Developer</h3>
-        <p>Building functional digital products using no-code and AI-assisted tools.</p>
+        <h3>AI Automation & Systems</h3>
+        <p>Building practical workflows, tools and digital systems with AI-assisted technology.</p>
         <div class="card-fx fx-dev"><i></i><i></i><i></i><i></i><i></i><i></i></div>
         <div class="skill-more">Core skill →</div>
         <div class="skill-accent-bar"></div>
@@ -721,8 +694,8 @@
       <div class="skill-card reveal-scale pattern-film" style="--accent:#ff5f6d; --accent-rgb:255,95,109; transition-delay:0.05s;">
         <div class="skill-num">02</div>
         <div class="skill-icon ia-flicker" style="background:#ff5f6d;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M9 9l6 3-6 3V9z" fill="currentColor" stroke="none"/></svg></div>
-        <h3>Content Creator</h3>
-        <p>Video content and short-form storytelling — from idea to final cut.</p>
+        <h3>Digital Content</h3>
+        <p>Creating clear, engaging content and short-form visual experiences for real audiences.</p>
         <div class="card-fx fx-content"><i></i><i></i><i></i><i></i></div>
         <div class="skill-more">Core skill →</div>
         <div class="skill-accent-bar"></div>
@@ -730,8 +703,8 @@
       <div class="skill-card reveal-scale pattern-grid" style="--accent:#00b39f; --accent-rgb:0,179,159; transition-delay:0.1s;">
         <div class="skill-num">03</div>
         <div class="skill-icon ia-bounce" style="background:#00b39f;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20V10M12 20V4M18 20v-7"/></svg></div>
-        <h3>Data Organizer &amp; Manager</h3>
-        <p>Turning messy data into clean, usable structure with Sheets and AI tools.</p>
+        <h3>Data &amp; Reporting</h3>
+        <p>Turning scattered information into clean, structured and useful business data.</p>
         <div class="card-fx fx-data"><i></i><i></i><i></i><i></i><i></i></div>
         <div class="skill-more">Core skill →</div>
         <div class="skill-accent-bar"></div>
@@ -739,8 +712,8 @@
       <div class="skill-card reveal-scale pattern-slides" style="--accent:#ffb020; --accent-rgb:255,176,32; transition-delay:0.15s;">
         <div class="skill-num">04</div>
         <div class="skill-icon ia-slide" style="background:#ffb020;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.2"/><path d="M8 20l4-4 4 4"/></svg></div>
-        <h3>Presentation Maker</h3>
-        <p>Clear, persuasive presentations that make complex ideas simple.</p>
+        <h3>Business Communication</h3>
+        <p>Turning complex ideas, reports and information into clear presentations.</p>
         <div class="card-fx fx-present"></div>
         <div class="skill-more">Core skill →</div>
         <div class="skill-accent-bar"></div>
@@ -748,8 +721,8 @@
       <div class="skill-card reveal-scale pattern-burst" style="--accent:#a259ff; --accent-rgb:162,89,255;" >
         <div class="skill-num">05</div>
         <div class="skill-icon ia-spin" style="background:#a259ff;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 9 9h-9V3z" fill="currentColor" stroke="none"/></svg></div>
-        <h3>Infographics Maker</h3>
-        <p>Converting data and ideas into visual, easy-to-scan infographics.</p>
+        <h3>Business Intelligence</h3>
+        <p>Making information easier to understand through structured research and visual insight.</p>
         <div class="card-fx fx-infographic"><i></i></div>
         <div class="skill-more">Core skill →</div>
         <div class="skill-accent-bar"></div>
@@ -757,8 +730,8 @@
       <div class="skill-card reveal-scale pattern-swatch" style="--accent:#0aa3ff; --accent-rgb:10,163,255; transition-delay:0.05s;">
         <div class="skill-num">06</div>
         <div class="skill-icon ia-hue" style="background:#0aa3ff;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
-        <h3>Graphic Designer</h3>
-        <p>Clean, professional visuals — for brands and for personal projects.</p>
+        <h3>Creative Solutions</h3>
+        <p>Designing practical visual assets for brands, products, campaigns and digital experiences.</p>
         <div class="card-fx fx-graphic"><i></i><i></i><i></i><i></i></div>
         <div class="skill-more">Core skill →</div>
         <div class="skill-accent-bar"></div>
@@ -766,8 +739,8 @@
       <div class="skill-card reveal-scale pattern-appgrid" style="--accent:#2f7ed8; --accent-rgb:47,126,216; transition-delay:0.1s;">
         <div class="skill-num">07</div>
         <div class="skill-icon ia-shimmer" style="background:#2f7ed8;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg></div>
-        <h3>Microsoft Office 365</h3>
-        <p>Word, Excel, PowerPoint and Outlook — used daily for real business tasks.</p>
+        <h3>Digital Operations</h3>
+        <p>Using everyday business tools to organize, communicate and execute work efficiently.</p>
         <div class="card-fx fx-office"><i></i><i></i><i></i><i></i></div>
         <div class="skill-more">Core skill →</div>
         <div class="skill-accent-bar"></div>
@@ -865,7 +838,7 @@
 </section>
 
 <footer>
-  <div>© 2026 Abdullah Mumtaz Malik — AMM Data Solutions</div>
+  <div>© 2026 Abdullah Mumtaz Malik · Founder, AMM Data Solutions</div>
 
 </footer>
 
