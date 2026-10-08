@@ -182,6 +182,74 @@
   }
   #tagline b{color:var(--ink); font-weight:600;}
 
+  /* ---------- interactive system objects ---------- */
+  .hero-system{
+    position:absolute; inset:0; pointer-events:none; z-index:-1; overflow:hidden;
+  }
+  .system-node{
+    position:absolute; width:58px; height:58px; border:1px solid rgba(68,56,242,.18);
+    border-radius:17px; background:rgba(255,255,255,.72); backdrop-filter:blur(10px);
+    box-shadow:0 18px 36px -20px rgba(19,19,24,.28), 0 0 0 1px rgba(255,255,255,.8) inset;
+    display:flex; align-items:center; justify-content:center;
+    animation:nodeFloat 5s ease-in-out infinite;
+  }
+  .system-node::after{
+    content:""; width:9px; height:9px; border-radius:50%; background:var(--node);
+    box-shadow:0 0 16px var(--node); animation:nodePulse 2s ease-in-out infinite;
+  }
+  .system-node:nth-child(1){--node:var(--indigo); left:9%; top:26%; animation-delay:-1s;}
+  .system-node:nth-child(2){--node:var(--teal); right:10%; top:29%; animation-delay:-2.2s;}
+  .system-node:nth-child(3){--node:var(--coral); left:15%; bottom:22%; animation-delay:-3.1s;}
+  .system-node:nth-child(4){--node:var(--amber); right:14%; bottom:20%; animation-delay:-.6s;}
+  .system-connector{
+    position:absolute; height:1px; transform-origin:left center;
+    background:linear-gradient(90deg,transparent,rgba(68,56,242,.28),transparent);
+    animation:connectorPulse 3.5s ease-in-out infinite;
+  }
+  .connector-a{width:240px; left:15%; top:37%; transform:rotate(10deg);}
+  .connector-b{width:210px; right:14%; top:39%; transform:rotate(166deg);}
+  .connector-c{width:260px; left:18%; bottom:29%; transform:rotate(-12deg);}
+  .connector-d{width:230px; right:18%; bottom:28%; transform:rotate(193deg);}
+  @keyframes nodeFloat{0%,100%{transform:translate3d(0,0,0) rotate(0deg)}50%{transform:translate3d(0,-12px,0) rotate(3deg)}}
+  @keyframes nodePulse{0%,100%{transform:scale(.8);opacity:.65}50%{transform:scale(1.35);opacity:1}}
+  @keyframes connectorPulse{0%,100%{opacity:.25;transform-origin:left center}50%{opacity:.8}}
+  @media(max-width:680px){
+    .hero-system{opacity:.65;}
+    .system-node{width:44px;height:44px;border-radius:13px;}
+    .system-node::after{width:7px;height:7px;}
+    .connector-a,.connector-c{left:3%;}
+    .connector-b,.connector-d{right:3%;}
+  }
+
+  /* ---------- problem-to-solution visual ---------- */
+  .solution-flow{
+    margin-top:34px; display:grid; grid-template-columns:1fr auto 1fr; gap:14px;
+    align-items:center;
+  }
+  .flow-card{
+    min-height:148px; padding:22px; border:1px solid var(--line); border-radius:20px;
+    background:rgba(255,255,255,.84); box-shadow:var(--card-shadow);
+    position:relative; overflow:hidden;
+  }
+  .flow-card::before{
+    content:""; position:absolute; inset:0; background:radial-gradient(circle at 80% 20%, rgba(68,56,242,.08), transparent 55%);
+    pointer-events:none;
+  }
+  .flow-label{font-size:.72rem; font-weight:700; letter-spacing:.12em; color:var(--indigo); margin-bottom:10px;}
+  .flow-title{font-family:var(--font-display); font-weight:700; font-size:1.1rem; margin-bottom:8px;}
+  .flow-copy{color:var(--sub);font-size:.88rem;line-height:1.55;}
+  .flow-stack{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px;}
+  .flow-chip{padding:6px 9px;border-radius:8px;border:1px solid var(--line);font-size:.7rem;background:#fff;transition:transform .3s ease;}
+  .flow-card:hover .flow-chip{transform:translateY(-3px);}
+  .flow-arrow{font-size:1.5rem;color:var(--indigo);animation:arrowFloat 1.8s ease-in-out infinite;}
+  @keyframes arrowFloat{0%,100%{transform:translateX(0);opacity:.5}50%{transform:translateX(7px);opacity:1}}
+  @media(max-width:680px){
+    .solution-flow{grid-template-columns:1fr;gap:10px;}
+    .flow-arrow{transform:rotate(90deg);justify-self:center;}
+    @keyframes arrowFloat{0%,100%{transform:rotate(90deg) translateX(0);opacity:.5}50%{transform:rotate(90deg) translateX(7px);opacity:1}}
+    .flow-card{min-height:0;}
+  }
+
   .location-chip{
     display:inline-flex; align-items:center; gap:8px;
     font-size:0.86rem; color:var(--sub); font-weight:500; margin-bottom:20px;
@@ -639,6 +707,22 @@
       <div class="sec-eyebrow">ABOUT ME</div>
       <h2>Building smarter ways to work</h2>
     </div>
+    <div class="solution-flow reveal-scale" aria-label="Problem to solution flow">
+      <div class="flow-card">
+        <div class="flow-label">START WITH THE PROBLEM</div>
+        <div class="flow-title">Messy work</div>
+        <div class="flow-copy">Scattered information, repetitive tasks and too many steps.</div>
+        <div class="flow-stack"><span class="flow-chip">Manual</span><span class="flow-chip">Scattered</span><span class="flow-chip">Slow</span></div>
+      </div>
+      <div class="flow-arrow" aria-hidden="true">→</div>
+      <div class="flow-card">
+        <div class="flow-label">BUILD WITH PURPOSE</div>
+        <div class="flow-title">Smarter systems</div>
+        <div class="flow-copy">Clear structure, useful automation and digital experiences built around the real need.</div>
+        <div class="flow-stack"><span class="flow-chip">Structured</span><span class="flow-chip">Practical</span><span class="flow-chip">Useful</span></div>
+      </div>
+    </div>
+
     <div class="about-wrap">
       <div class="about-copy reveal-left">
         <div class="about-quote">"We turn repetitive business work into smart, organized systems."</div>
