@@ -200,8 +200,7 @@
   .system-node:nth-child(1){--node:var(--indigo); left:9%; top:26%; animation-delay:-1s;}
   .system-node:nth-child(2){--node:var(--teal); right:10%; top:29%; animation-delay:-2.2s;}
   .system-node:nth-child(3){--node:var(--coral); left:15%; bottom:22%; animation-delay:-3.1s;}
-  .system-node:nth-child(4){--node:var(--amber); right:14%; bottom:20%; animation-delay:-.6s;}
-  .system-connector{
+    .system-connector{
     position:absolute; height:1px; transform-origin:left center;
     background:linear-gradient(90deg,transparent,rgba(68,56,242,.28),transparent);
     animation:connectorPulse 3.5s ease-in-out infinite;
@@ -209,8 +208,7 @@
   .connector-a{width:240px; left:15%; top:37%; transform:rotate(10deg);}
   .connector-b{width:210px; right:14%; top:39%; transform:rotate(166deg);}
   .connector-c{width:260px; left:18%; bottom:29%; transform:rotate(-12deg);}
-  .connector-d{width:230px; right:18%; bottom:28%; transform:rotate(193deg);}
-  @keyframes nodeFloat{0%,100%{transform:translate3d(0,0,0) rotate(0deg)}50%{transform:translate3d(0,-12px,0) rotate(3deg)}}
+    @keyframes nodeFloat{0%,100%{transform:translate3d(0,0,0) rotate(0deg)}50%{transform:translate3d(0,-12px,0) rotate(3deg)}}
   @keyframes nodePulse{0%,100%{transform:scale(.8);opacity:.65}50%{transform:scale(1.35);opacity:1}}
   @keyframes connectorPulse{0%,100%{opacity:.25;transform-origin:left center}50%{opacity:.8}}
   @media(max-width:680px){
@@ -627,6 +625,27 @@
     100%{transform:scale(9); opacity:0;}
   }
 
+
+  /* ---------- readability refinement ---------- */
+  body{font-size:16px;}
+  .nav-links{font-size:0.96rem;}
+  #tagline{color:#30313a; font-size:clamp(1.04rem,2.25vw,1.2rem); line-height:1.7;}
+  .sec-head p{color:#30313a; font-size:1.06rem; line-height:1.7;}
+  .about-copy p{color:#30313a; font-size:1.06rem; line-height:1.78;}
+  .about-quote{font-size:clamp(1.18rem,2.7vw,1.55rem);}
+  .skill-card p{color:#30313a; font-size:0.94rem; line-height:1.62;}
+  .skill-card h3{font-size:1.12rem;}
+  .highlight-row p{color:#30313a; font-size:0.92rem; line-height:1.55;}
+  .cert-meta{color:#30313a;}
+  .contact-card p{color:#30313a;}
+  @media(max-width:680px){
+    .container{padding-left:5vw;padding-right:5vw;}
+    #tagline{font-size:1.03rem;line-height:1.68;}
+    .sec-head p{font-size:1rem;}
+    .about-copy p{font-size:1rem;}
+    .skill-card p{font-size:0.93rem;}
+  }
+
 </style>
 </head>
 <body>
@@ -802,34 +821,6 @@
         <div class="skill-more">Core skill →</div>
         <div class="skill-accent-bar"></div>
       </div>
-      <div class="skill-card reveal-scale pattern-burst" style="--accent:#a259ff; --accent-rgb:162,89,255;" >
-        <div class="skill-num">05</div>
-        <div class="skill-icon ia-spin" style="background:#a259ff;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 9 9h-9V3z" fill="currentColor" stroke="none"/></svg></div>
-        <h3>Business Intelligence</h3>
-        <p>Making information easier to understand through structured research and visual insight.</p>
-        <div class="card-fx fx-infographic"><i></i></div>
-        <div class="skill-more">Core skill →</div>
-        <div class="skill-accent-bar"></div>
-      </div>
-      <div class="skill-card reveal-scale pattern-swatch" style="--accent:#0aa3ff; --accent-rgb:10,163,255; transition-delay:0.05s;">
-        <div class="skill-num">06</div>
-        <div class="skill-icon ia-hue" style="background:#0aa3ff;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
-        <h3>Creative Solutions</h3>
-        <p>Designing practical visual assets for brands, products, campaigns and digital experiences.</p>
-        <div class="card-fx fx-graphic"><i></i><i></i><i></i><i></i></div>
-        <div class="skill-more">Core skill →</div>
-        <div class="skill-accent-bar"></div>
-      </div>
-      <div class="skill-card reveal-scale pattern-appgrid" style="--accent:#2f7ed8; --accent-rgb:47,126,216; transition-delay:0.1s;">
-        <div class="skill-num">07</div>
-        <div class="skill-icon ia-shimmer" style="background:#2f7ed8;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg></div>
-        <h3>Digital Operations</h3>
-        <p>Using everyday business tools to organize, communicate and execute work efficiently.</p>
-        <div class="card-fx fx-office"><i></i><i></i><i></i><i></i></div>
-        <div class="skill-more">Core skill →</div>
-        <div class="skill-accent-bar"></div>
-      </div>
-    </div>
   </div>
 </section>
 
