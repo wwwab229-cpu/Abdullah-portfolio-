@@ -646,6 +646,18 @@
     .skill-card p{font-size:0.93rem;}
   }
 
+
+  .capability-highlights{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+    margin-top:22px;
+  }
+  .capability-highlights .highlight-row{min-height:92px;}
+  @media(max-width:680px){
+    .capability-highlights{grid-template-columns:1fr;}
+  }
+
 </style>
 </head>
 <body>
@@ -753,23 +765,6 @@
           <span class="about-chip" style="--c:#ff5f6d;">🎯 Client-Ready Output</span>
         </div>
       </div>
-      <div class="about-highlights">
-        <div class="highlight-row reveal-right pattern-grid" style="--accent:#00b39f; --accent-rgb:0,179,159;">
-          <div class="highlight-icon ia-bounce" style="background:#00b39f;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20V10M12 20V4M18 20v-7"/></svg></div>
-          <div>
-            <h4>Data Organizer &amp; Manager</h4>
-            <p>Structuring messy, scattered data into clean, decision-ready sheets.</p>
-          </div>
-        </div>
-        <div class="highlight-row reveal-right pattern-burst" style="--accent:#a259ff; --accent-rgb:162,89,255; transition-delay:0.16s;">
-          <div class="highlight-icon ia-spin" style="background:#a259ff;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 9 9h-9V3z" fill="currentColor" stroke="none"/></svg></div>
-          <div>
-            <h4>Infographics Designer</h4>
-            <p>Turning dense data and ideas into visuals that are easy to scan and understand.</p>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -820,7 +815,21 @@
         <div class="card-fx fx-present"></div>
         <div class="skill-more">Core skill →</div>
         <div class="skill-accent-bar"></div>
-      </div>
+      <div class="about-highlights capability-highlights reveal" aria-label="Practical strengths">
+<div class="highlight-row reveal-right pattern-grid" style="--accent:#00b39f; --accent-rgb:0,179,159;">
+          <div class="highlight-icon ia-bounce" style="background:#00b39f;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20V10M12 20V4M18 20v-7"/></svg></div>
+          <div>
+            <h4>Data Organizer &amp; Manager</h4>
+            <p>Structuring messy, scattered data into clean, decision-ready sheets.</p>
+          </div>
+        </div>
+        <div class="highlight-row reveal-right pattern-burst" style="--accent:#a259ff; --accent-rgb:162,89,255; transition-delay:0.16s;">
+          <div class="highlight-icon ia-spin" style="background:#a259ff;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 9 9h-9V3z" fill="currentColor" stroke="none"/></svg></div>
+          <div>
+            <h4>Infographics Designer</h4>
+            <p>Turning dense data and ideas into visuals that are easy to scan and understand.</p>
+    </div>
+    </div>
   </div>
 </section>
 
