@@ -293,6 +293,36 @@
   }
   @media (max-width:640px){ .light-frame::before, .light-frame::after{inset:8px; border-radius:22px;} }
 
+  /* ---------- TEXT HIGHLIGHT SYSTEM ---------- */
+  .text-word{
+    display:inline;
+    padding:0 .08em .04em;
+    border-radius:.18em;
+    background:linear-gradient(transparent 57%, rgba(255,207,32,.30) 57%, rgba(162,89,255,.18) 92%, transparent 92%);
+    box-decoration-break:clone;
+    -webkit-box-decoration-break:clone;
+    transition:background .25s ease, text-shadow .25s ease, filter .25s ease;
+  }
+  .text-word:hover{
+    background:linear-gradient(transparent 48%, rgba(255,207,32,.48) 48%, rgba(68,56,242,.18) 100%);
+    text-shadow:0 0 14px rgba(68,56,242,.18);
+  }
+  h1#name .text-word, #name-urdu .text-word, .sec-head h2 .text-word, .about-quote .text-word,
+  .skill-card h3 .text-word, .highlight-row h4 .text-word, .cert-face h3 .text-word,
+  .contact-card h4 .text-word{
+    background:linear-gradient(transparent 55%, rgba(68,56,242,.16) 55%, rgba(255,207,32,.34) 91%, transparent 91%);
+  }
+  .sec-eyebrow .text-word, .skill-more .text-word, .cert-org .text-word{
+    background:linear-gradient(transparent 50%, rgba(0,179,159,.20) 50%, rgba(68,56,242,.18) 100%);
+  }
+  .text-highlight-sweep{
+    animation:textHighlightSweep 4.5s ease-in-out infinite;
+  }
+  @keyframes textHighlightSweep{
+    0%,100%{filter:brightness(1);}
+    50%{filter:brightness(1.08);}
+  }
+
   /* ---------- SECTION HEADERS ---------- */
   .sec-eyebrow{ font-family:var(--font-display); font-size:0.82rem; font-weight:600; color:var(--indigo); margin-bottom:12px; letter-spacing:0.02em; }
   .sec-head{max-width:640px; margin:0 auto 34px; text-align:center;}
@@ -928,6 +958,31 @@
 
 <script>
 (function(){
+  // ---- main text highlight treatment ----
+  function highlightWords(selector){
+    document.querySelectorAll(selector).forEach(function(el){
+      var walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+      var nodes=[];
+      while(walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach(function(node){
+        if(!node.nodeValue.trim() || node.parentElement.closest('.text-word, svg')) return;
+        var frag=document.createDocumentFragment();
+        var parts=node.nodeValue.split(/(\\s+)/);
+        parts.forEach(function(part){
+          if(/^\\s+$/.test(part)){ frag.appendChild(document.createTextNode(part)); return; }
+          if(!part) return;
+          var span=document.createElement('span');
+          span.className='text-word';
+          span.textContent=part;
+          frag.appendChild(span);
+        });
+        node.parentNode.replaceChild(frag,node);
+      });
+      el.classList.add('text-highlight-sweep');
+    });
+  }
+  highlightWords('h1#name, #name-urdu, #tagline b, .sec-head h2, .sec-eyebrow, .about-quote, .about-copy p b, .about-chip, .skill-card h3, .skill-more, .highlight-row h4, .cert-org, .cert-face h3, .contact-card h4');
+
   // ---- nav scroll state ----
   var nav = document.getElementById('nav');
   window.addEventListener('scroll', function(){
