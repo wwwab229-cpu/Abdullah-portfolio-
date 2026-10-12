@@ -624,7 +624,7 @@
     position:relative; width:100%; height:100%; transition:transform 0.7s cubic-bezier(.3,.7,.3,1);
     transform-style:preserve-3d;
   }
-  .cert-flip:hover .cert-flip-inner{transform:rotateY(180deg);}
+  .cert-flip.is-flipped .cert-flip-inner{transform:rotateY(180deg);}
   .cert-face{
     position:absolute; inset:0; backface-visibility:hidden; border-radius:26px;
     padding:30px clamp(22px,4vw,34px); box-shadow:var(--card-shadow);
@@ -961,17 +961,17 @@
     <div class="sec-head reveal">
       <div class="sec-eyebrow">CREDENTIALS</div>
       <h2>Certifications</h2>
-      <p>Hover a card to flip it.</p>
+      <p>Select a certificate to view its skills and verification link.</p>
     </div>
     <div class="cert-grid">
-      <div class="cert-flip reveal-scale">
+      <div class="cert-flip reveal-scale" tabindex="0" role="button" aria-pressed="false" aria-label="View Career Essentials in Generative AI certificate details">
         <div class="cert-flip-inner">
           <div class="cert-face cert-front pattern-circuit" style="--accent-rgb:68,56,242;">
             <div class="cert-badge ia-pulse" style="background:linear-gradient(135deg,#4438f2,#a259ff);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/></svg></div>
             <div class="cert-org" style="color:#4438f2;">LinkedIn Learning × Microsoft</div>
             <h3>Career Essentials in Generative AI</h3>
             <div class="cert-meta">Completed Sep 09, 2026 · 4 hours 18 minutes</div>
-            <div class="cert-hint">↻ Hover to see skills</div>
+            <div class="cert-hint">↻ Tap to see skills</div>
           </div>
           <div class="cert-face cert-back" style="--c1:#4438f2; --c2:#a259ff;">
             <div class="headline">Skills Covered</div>
@@ -985,14 +985,14 @@
           </div>
         </div>
       </div>
-      <div class="cert-flip reveal-scale" style="transition-delay:0.1s;">
+      <div class="cert-flip reveal-scale" style="transition-delay:0.1s;" tabindex="0" role="button" aria-pressed="false" aria-label="View Introduction to Generative AI certificate details">
         <div class="cert-flip-inner">
           <div class="cert-face cert-front pattern-burst" style="--accent-rgb:10,163,255;">
             <div class="cert-badge ia-spin" style="background:linear-gradient(135deg,#0aa3ff,#00b39f);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></svg></div>
             <div class="cert-org" style="color:#0aa3ff;">Google</div>
             <h3>Introduction to Generative AI</h3>
             <div class="cert-meta">Foundations of generative AI concepts and tools</div>
-            <div class="cert-hint">↻ Hover to see skills</div>
+            <div class="cert-hint">↻ Tap to see skills</div>
           </div>
           <div class="cert-face cert-back" style="--c1:#0aa3ff; --c2:#00b39f;">
             <div class="headline">Skills Covered</div>
@@ -1069,6 +1069,26 @@
     });
   }, {threshold:0.16, rootMargin:'0px 0px -8% 0px'});
   revealEls.forEach(function(el){ io.observe(el); });
+
+  // ---- independent certification card flip interaction ----
+  document.querySelectorAll('.cert-flip').forEach(function(card){
+    function setFlipped(flipped){
+      card.classList.toggle('is-flipped', flipped);
+      card.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+    }
+    card.addEventListener('click', function(e){
+      if(e.target.closest('a')) return;
+      setFlipped(!card.classList.contains('is-flipped'));
+    });
+    card.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        if(e.target.closest('a')) return;
+        e.preventDefault();
+        setFlipped(!card.classList.contains('is-flipped'));
+      }
+      if(e.key === 'Escape') setFlipped(false);
+    });
+  });
 
   // ---- reliable skill/service card flip interaction ----
   document.querySelectorAll('.skill-flip-card').forEach(function(card){
