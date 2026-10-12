@@ -612,7 +612,7 @@
   .skill-back li::before{content:"";position:absolute;left:0;top:.47em;width:6px;height:6px;border-radius:50%;background:var(--accent);}
   .skill-back-hint{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.7);margin-top:2px;}
   .skill-flip-card:focus-visible{outline:3px solid var(--accent);outline-offset:4px;border-radius:var(--radius);}
-  @media (hover:none){.skill-flip-card:hover .skill-flip-inner{transform:rotateY(0deg)!important;}.skill-flip-card:hover .skill-front::before{opacity:0;}}
+  @media (hover:none){.skill-flip-card:hover:not(.is-flipped) .skill-flip-inner{transform:rotateY(0deg)!important;}.skill-flip-card:hover .skill-front::before{opacity:0;}}
   @media (max-width:520px){.skill-flip-inner{height:280px}.skill-flip-card{min-height:280px}.skill-face{padding:26px 22px}.skill-back li{font-size:.8rem;}.skill-flip-hint{top:12px;right:12px;font-size:.65rem;}}
   @media (prefers-reduced-motion:reduce){.skill-flip-inner{transition:none;}}
   
