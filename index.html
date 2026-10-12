@@ -591,17 +591,19 @@
   @media (max-width:520px){.skills-grid{grid-template-columns:1fr;}}
 
   /* ---------- SKILL & SERVICE FLIP CARDS ---------- */
-  .skill-flip-card{padding:0!important;overflow:visible!important;background:transparent!important;border:0!important;box-shadow:none!important;perspective:1400px;min-height:285px;cursor:pointer;transform:none!important;}
+  .skill-flip-card{position:relative!important;padding:0!important;overflow:visible!important;background:transparent!important;border:0!important;box-shadow:none!important;perspective:1400px;min-height:285px;cursor:pointer;transform:none!important;}
   .skill-flip-card::before,.skill-flip-card::after{display:none!important;}
-  .skill-flip-inner{position:relative;width:100%;height:285px;transform-style:preserve-3d;transition:transform .65s cubic-bezier(.3,.7,.3,1);}
-  .skill-flip-card:hover .skill-flip-inner,.skill-flip-card.is-flipped .skill-flip-inner{transform:rotateY(180deg);}
+  .skill-flip-inner{position:relative;width:100%;height:285px;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transition:transform .65s cubic-bezier(.3,.7,.3,1);will-change:transform;}
+  .skill-flip-card:hover .skill-flip-inner,.skill-flip-card.is-flipped .skill-flip-inner{transform:rotateY(180deg)!important;}
   .skill-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--radius);border:1px solid var(--line);box-shadow:var(--card-shadow);padding:30px 24px;overflow:hidden;}
-  .skill-face-front{background-color:#fff;}
-  .skill-face-front::before{content:"";position:absolute;inset:0;background:var(--accent);opacity:0;transition:opacity .3s ease;pointer-events:none;}
-  .skill-flip-card:hover .skill-face-front::before{opacity:.045;}
-  .skill-face-front .skill-more{opacity:1;transform:none;bottom:15px;right:18px;}
-  .skill-face-front .skill-accent-bar{width:100%;}
-  .skill-face-front .skill-num{z-index:3;}
+  .skill-front{transform:rotateY(0deg);background-color:#fff;}
+  .skill-front::before{content:"";position:absolute;inset:0;background:var(--accent);opacity:0;transition:opacity .3s ease;pointer-events:none;}
+  .skill-flip-card:hover .skill-front::before{opacity:.045;}
+  .skill-front .skill-more{opacity:1;transform:none;bottom:15px;right:18px;}
+  .skill-front .skill-accent-bar{width:100%;}
+  .skill-front .skill-num{z-index:3;}
+  .skill-flip-hint{position:absolute;right:16px;top:15px;z-index:5;display:flex;align-items:center;gap:6px;padding:6px 9px;border:1px solid rgba(var(--accent-rgb),.28);border-radius:999px;background:rgba(255,255,255,.92);color:var(--accent);font-size:.68rem;font-weight:700;letter-spacing:.01em;box-shadow:0 3px 12px rgba(15,23,42,.06);}
+  .skill-flip-hint svg{width:14px;height:14px;flex-shrink:0;}
   .skill-back{transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center;gap:13px;background:linear-gradient(145deg,#101b35,#172c4b);color:#fff;border-color:rgba(var(--accent-rgb),.45);}
   .skill-back-label{font-size:.68rem;letter-spacing:.14em;font-weight:700;color:var(--accent);text-transform:uppercase;}
   .skill-back h3{font-size:1.08rem;margin:0;color:#fff;transform:none;line-height:1.3;}
@@ -610,7 +612,8 @@
   .skill-back li::before{content:"";position:absolute;left:0;top:.47em;width:6px;height:6px;border-radius:50%;background:var(--accent);}
   .skill-back-hint{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.7);margin-top:2px;}
   .skill-flip-card:focus-visible{outline:3px solid var(--accent);outline-offset:4px;border-radius:var(--radius);}
-  @media (max-width:520px){.skill-flip-inner{height:280px}.skill-flip-card{min-height:280px}.skill-face{padding:26px 22px}.skill-back li{font-size:.8rem;}}
+  @media (hover:none){.skill-flip-card:hover .skill-flip-inner{transform:rotateY(0deg)!important;}.skill-flip-card:hover .skill-front::before{opacity:0;}}
+  @media (max-width:520px){.skill-flip-inner{height:280px}.skill-flip-card{min-height:280px}.skill-face{padding:26px 22px}.skill-back li{font-size:.8rem;}.skill-flip-hint{top:12px;right:12px;font-size:.65rem;}}
   @media (prefers-reduced-motion:reduce){.skill-flip-inner{transition:none;}}
   
   /* ---------- CERTIFICATIONS ---------- */
@@ -886,7 +889,7 @@
       <p>Practical capabilities used to turn business problems into useful outcomes.</p>
     </div>
     <div class="skills-grid">
-      <div class="skill-card skill-flip-card reveal-scale pattern-circuit" style="--accent:#4438f2; --accent-rgb:68,56,242;"  tabindex="0" role="button" aria-label="View details for AI Automation & Systems"><div class="skill-flip-inner"><div class="skill-face skill-front pattern-circuit">
+      <div class="skill-card skill-flip-card reveal-scale pattern-circuit" style="--accent:#4438f2; --accent-rgb:68,56,242;"  tabindex="0" role="button" aria-label="View details for AI Automation & Systems"><div class="skill-flip-inner"><div class="skill-face skill-front pattern-circuit"><div class="skill-flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7v5h-5"/><path d="M4 17v-5h5"/><path d="M5.5 9A7 7 0 0 1 18 6l2 6"/><path d="M18.5 15A7 7 0 0 1 6 18l-2-6"/></svg><span>Tap to explore</span></div><div class="skill-flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7v5h-5"/><path d="M4 17v-5h5"/><path d="M5.5 9A7 7 0 0 1 18 6l2 6"/><path d="M18.5 15A7 7 0 0 1 6 18l-2-6"/></svg><span>Tap to explore</span></div>
         <div class="skill-num">01</div>
         <div class="skill-icon ia-pulse" style="background:#4438f2;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1.2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
         <h3>AI Automation & Systems</h3>
@@ -895,7 +898,7 @@
         <div class="skill-more">Core skill →</div>
         <div class="skill-accent-bar"></div>
       </div><div class="skill-face skill-back" aria-hidden="true"><div class="skill-back-label">OVERVIEW</div><h3>AI Automation & Systems</h3><ul><li>Workflow design & process automation</li><li>AI-assisted tools and integrations</li><li>Goal: reduce repetitive manual work</li></ul><div class="skill-back-hint">Click to return ↻</div></div></div></div>
-      <div class="skill-card skill-flip-card reveal-scale pattern-film" style="--accent:#ff5f6d; --accent-rgb:255,95,109; transition-delay:0.05s;" tabindex="0" role="button" aria-label="View details for Digital Content"><div class="skill-flip-inner"><div class="skill-face skill-front pattern-film">
+      <div class="skill-card skill-flip-card reveal-scale pattern-film" style="--accent:#ff5f6d; --accent-rgb:255,95,109; transition-delay:0.05s;" tabindex="0" role="button" aria-label="View details for Digital Content"><div class="skill-flip-inner"><div class="skill-face skill-front pattern-film"><div class="skill-flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7v5h-5"/><path d="M4 17v-5h5"/><path d="M5.5 9A7 7 0 0 1 18 6l2 6"/><path d="M18.5 15A7 7 0 0 1 6 18l-2-6"/></svg><span>Tap to explore</span></div>
         <div class="skill-num">02</div>
         <div class="skill-icon ia-flicker" style="background:#ff5f6d;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M9 9l6 3-6 3V9z" fill="currentColor" stroke="none"/></svg></div>
         <h3>Digital Content</h3>
@@ -904,7 +907,7 @@
         <div class="skill-more">Core skill →</div>
         <div class="skill-accent-bar"></div>
       </div><div class="skill-face skill-back" aria-hidden="true"><div class="skill-back-label">OVERVIEW</div><h3>Digital Content</h3><ul><li>Social media and digital content assets</li><li>Clear, audience-focused visual messaging</li><li>Goal: consistent brand communication</li></ul><div class="skill-back-hint">Click to return ↻</div></div></div></div>
-      <div class="skill-card skill-flip-card reveal-scale pattern-grid" style="--accent:#00b39f; --accent-rgb:0,179,159; transition-delay:0.1s;" tabindex="0" role="button" aria-label="View details for Data & Reporting"><div class="skill-flip-inner"><div class="skill-face skill-front pattern-grid">
+      <div class="skill-card skill-flip-card reveal-scale pattern-grid" style="--accent:#00b39f; --accent-rgb:0,179,159; transition-delay:0.1s;" tabindex="0" role="button" aria-label="View details for Data & Reporting"><div class="skill-flip-inner"><div class="skill-face skill-front pattern-grid"><div class="skill-flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7v5h-5"/><path d="M4 17v-5h5"/><path d="M5.5 9A7 7 0 0 1 18 6l2 6"/><path d="M18.5 15A7 7 0 0 1 6 18l-2-6"/></svg><span>Tap to explore</span></div>
         <div class="skill-num">03</div>
         <div class="skill-icon ia-bounce" style="background:#00b39f;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20V10M12 20V4M18 20v-7"/></svg></div>
         <h3>Data &amp; Reporting</h3>
@@ -913,7 +916,7 @@
         <div class="skill-more">Core skill →</div>
         <div class="skill-accent-bar"></div>
       </div><div class="skill-face skill-back" aria-hidden="true"><div class="skill-back-label">OVERVIEW</div><h3>Data & Reporting</h3><ul><li>Organize data in sheets and reports</li><li>Structure information for easy review</li><li>Goal: clearer business decisions</li></ul><div class="skill-back-hint">Click to return ↻</div></div></div></div>
-      <div class="skill-card skill-flip-card reveal-scale pattern-slides" style="--accent:#ffb020; --accent-rgb:255,176,32; transition-delay:0.15s;" tabindex="0" role="button" aria-label="View details for Business Communication"><div class="skill-flip-inner"><div class="skill-face skill-front pattern-slides">
+      <div class="skill-card skill-flip-card reveal-scale pattern-slides" style="--accent:#ffb020; --accent-rgb:255,176,32; transition-delay:0.15s;" tabindex="0" role="button" aria-label="View details for Business Communication"><div class="skill-flip-inner"><div class="skill-face skill-front pattern-slides"><div class="skill-flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7v5h-5"/><path d="M4 17v-5h5"/><path d="M5.5 9A7 7 0 0 1 18 6l2 6"/><path d="M18.5 15A7 7 0 0 1 6 18l-2-6"/></svg><span>Tap to explore</span></div>
         <div class="skill-num">04</div>
         <div class="skill-icon ia-slide" style="background:#ffb020;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.2"/><path d="M8 20l4-4 4 4"/></svg></div>
         <h3>Business Communication</h3>
@@ -1067,18 +1070,20 @@
   }, {threshold:0.16, rootMargin:'0px 0px -8% 0px'});
   revealEls.forEach(function(el){ io.observe(el); });
 
-  // ---- accessible skill/service card flips (desktop + touch) ----
+  // ---- reliable skill/service card flip interaction ----
   document.querySelectorAll('.skill-flip-card').forEach(function(card){
-    function toggleCard(){
-      card.classList.toggle('is-flipped');
-      var back = card.querySelector('.skill-back');
-      if(back) back.setAttribute('aria-hidden', card.classList.contains('is-flipped') ? 'false' : 'true');
-      card.setAttribute('aria-pressed', card.classList.contains('is-flipped') ? 'true' : 'false');
+    var inner = card.querySelector('.skill-flip-inner');
+    var back = card.querySelector('.skill-back');
+    function setFlipped(flipped){
+      card.classList.toggle('is-flipped', flipped);
+      if(inner) inner.style.transform = flipped ? 'rotateY(180deg)' : '';
+      if(back) back.setAttribute('aria-hidden', flipped ? 'false' : 'true');
+      card.setAttribute('aria-pressed', flipped ? 'true' : 'false');
     }
-    card.addEventListener('click', function(){ toggleCard(); });
+    card.addEventListener('click', function(){ setFlipped(!card.classList.contains('is-flipped')); });
     card.addEventListener('keydown', function(e){
-      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleCard(); }
-      if(e.key === 'Escape'){ card.classList.remove('is-flipped'); card.setAttribute('aria-pressed','false'); }
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); setFlipped(!card.classList.contains('is-flipped')); }
+      if(e.key === 'Escape'){ setFlipped(false); }
     });
   });
 
